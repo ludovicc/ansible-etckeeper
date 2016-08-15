@@ -54,8 +54,8 @@
   become: true
   when: etckeeper_fact_is_not_initial_check_mode
   with_flattened:
-    - etckeeper_vcs
-    - etckeeper_package_list
+    - "{{ etckeeper_vcs }}"
+    - "{{ etckeeper_package_list }}"
   action: "{{ ansible_pkg_mgr }}"
   args:
     state: "{{ etckeeper_package_state }}"
@@ -77,9 +77,9 @@
     - etckeeper_vcs == 'git'
     - etckeeper_fact_is_not_initial_check_mode
   with_flattened:
-    - etckeeper_gitignore
-    - etckeeper_gitignore_group
-    - etckeeper_gitignore_host
+    - "{{ etckeeper_gitignore }}"
+    - "{{ etckeeper_gitignore_group }}"
+    - "{{ etckeeper_gitignore_host }}"
   lineinfile:
     dest: '/etc/.gitignore'
     line: "{{ item }}"
