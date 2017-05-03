@@ -18,7 +18,7 @@
 
 - name: Include --check mode detection
   tags: etckeeper
-  include: ../../silpion.lib/tasks/checkmodedetection.yml
+  include: "{{ etckeeper_path_to_lib_role }}/silpion.lib/tasks/checkmodedetection.yml"
 
 - name: Detect --check mode on initial run
   tags: etckeeper
@@ -85,9 +85,15 @@
     line: "{{ item }}"
     insertbefore: 'BOF'
 
+- name: Perform initial commit
+  tags: etckeeper
+  become: true
+  command: etckeeper commit "Initial"
+  args:
+    creates: /etc/.git/refs/heads/master
 
 - name: Include local facts management
   tags: etckeeper
-  include: ../../silpion.lib/tasks/localfacts.yml
+  include: "{{ etckeeper_path_to_lib_role }}/silpion.lib/tasks/localfacts.yml"
   vars:
     namespace: etckeeper

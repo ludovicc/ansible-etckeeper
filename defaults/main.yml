@@ -25,3 +25,6 @@ etckeeper_gitignore_group: []
 etckeeper_gitignore_host: []
 
 etckeeper_package_state: "{{ util_package_state|default('installed') }}"
+
+# path to lib_role
+etckeeper_path_to_lib_role: "{{ lib_roles_path|default(playbook_dir + '/roles') }}"
