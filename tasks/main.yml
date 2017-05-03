@@ -91,6 +91,9 @@
   command: etckeeper commit "Initial"
   args:
     creates: /etc/.git/refs/heads/master
+  when:
+    - etckeeper_vcs == 'git'
+    - etckeeper_fact_is_not_initial_check_mode
 
 - name: Include local facts management
   tags: etckeeper
