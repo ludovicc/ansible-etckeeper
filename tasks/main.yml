@@ -18,7 +18,7 @@
 
 - name: Include --check mode detection
   tags: etckeeper
-  include: "{{ etckeeper_path_to_lib_role }}/silpion.lib/tasks/checkmodedetection.yml"
+  include_tasks: "{{ etckeeper_path_to_lib_role }}/silpion.lib/tasks/checkmodedetection.yml"
 
 - name: Detect --check mode on initial run
   tags: etckeeper
