@@ -97,6 +97,6 @@
 
 - name: Include local facts management
   tags: etckeeper
-  include: "{{ etckeeper_path_to_lib_role }}/silpion.lib/tasks/localfacts.yml"
+  include_tasks: "{{ etckeeper_path_to_lib_role }}/silpion.lib/tasks/localfacts.yml"
   vars:
     namespace: etckeeper
